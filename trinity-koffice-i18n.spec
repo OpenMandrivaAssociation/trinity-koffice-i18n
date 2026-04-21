@@ -1,11 +1,9 @@
 %bcond clang 1
 
 # TDE variables
-%define tde_epoch 2
 %if "%{?tde_version}" == ""
 %define tde_version 14.1.5
 %endif
-%define pkg_rel 2
 
 %define tde_pkg koffice-i18n
 %define tde_prefix /opt/trinity
@@ -37,17 +35,13 @@
 
 
 Name:		trinity-%{tde_pkg}
-Epoch:		%{tde_epoch}
 Version:	1.6.3
-Release:	%{?tde_version}_%{?!preversion:%{pkg_rel}}%{?preversion:0_%{preversion}}%{?dist}
+Release:	%{?tde_version:%{tde_version}_}2
 Summary:	Internationalization support for Koffice [Trinity]
 Group:		User Interface/Desktops
 URL:		http://www.trinitydesktop.org/
 
 License:	GPLv2+
-
-#Vendor:		Trinity Desktop
-#Packager:	Francois Andriot <francois.andriot@free.fr>
 
 Prefix:		%{tde_prefix}
 
@@ -58,7 +52,7 @@ BuildArch:	noarch
 %define __spec_install_post %{nil}
 AutoReq: no
 
-Source0:		https://mirror.ppa.trinitydesktop.org/trinity/releases/R%{tde_version}/main/applications/office/%{tarball_name}-%{tde_version}%{?preversion:~%{preversion}}.tar.xz
+Source0:		https://mirror.ppa.trinitydesktop.org/trinity/releases/R%{tde_version}/main/applications/office/%{tarball_name}-%{tde_version}.tar.xz
 
 BuildRequires:  cmake make
 
