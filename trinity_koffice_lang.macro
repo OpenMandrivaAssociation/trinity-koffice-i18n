@@ -1,0 +1,31 @@
+
+%_trinity_koffice_lang_template()\
+%package -n %{name}-%{1}\
+Summary:	%{1} language data for %{name}\
+BuildArch:	noarch\
+Provides:	%{name}-%{1} = %{version}-%{release}\
+Provides:	%{name}-%{2} = %{version}-%{release}\
+Requires:	trinity-desktop >= %{EVRD}\
+\
+%description -n %{name}-%{1}\
+%{1} language data for %{name}.\
+%files -n %{name}-%{1} -f %{name}.lang\
+%optional %{tde_prefix}/share/doc/tde/HTML/%{2}/\
+%{nil}
+
+
+# this macro is to handle languages with non-iso path naming
+%_trinity_koffice_lang_template_alt()\
+%package -n %{name}-%{1}\
+Summary:	%{1} language data for %{name}\
+BuildArch:	noarch\
+Provides:	%{name}-%{1} = %{version}-%{release}\
+Provides:	%{name}-%{3} = %{version}-%{release}\
+Requires:	trinity-desktop >= %{EVRD}\
+\
+%description -n %{name}-%{1}\
+%{1} language data for %{name}.\
+%files -n %{name}-%{1} -f %{name}.lang\
+%optional %{tde_prefix}/share/doc/tde/HTML/%{2}/\
+%{nil}
+
